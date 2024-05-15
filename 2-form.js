@@ -3,22 +3,23 @@ const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
 
-
+//прослуховування кнопки та інпута
 form.addEventListener('submit', onFormSubmit);
+form.addEventListener('input', onInputData);
 
-let dataForm = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 const { email, message } = form.elements;
 reloadPage();
 
 function onInputData(event) {
-    dataForm = { email: email.value, message: message.value };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataForm));
+    formData = { email: email.value, message: message.value };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
 function reloadPage() {
-    if (dataForm) {
-        email.value = dataForm.email || '';
-        message.value = dataForm.message || '';
+    if (formData) {
+        email.value = formData.email || '';
+        message.value = formData.message || '';
     }
 }
 
@@ -29,8 +30,7 @@ function onFormSubmit(event) {
     if (email.value === '' || message.value === '') {
         return alert(`Будь ласка, заповніть всі обов'язкові поля.`);
     }
-
     localStorage.removeItem(STORAGE_KEY);
     event.currentTarget.reset();
-    dataForm = {};
+    formData = {};
 }
