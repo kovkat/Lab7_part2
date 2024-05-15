@@ -1,0 +1,38 @@
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+}
+
+.feedback-form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.feedback-form button {
+    padding: 8px 12px;
+    background-color: rgb(78, 117, 255);
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+    opacity: 0.5;
+}
+
+textarea {
+    padding: 8px;
+    font: inherit;
+}
+
+textarea {
+    resize: none;
+}
